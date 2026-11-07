@@ -50,3 +50,11 @@ A booking can be looked up by its id.
 Check: R101 → Maya, R7, 12–14 November, Confirmed.
 
 Proof: `View R101: Maya, R7, 12-14 Nov, Confirmed`
+
+## R6 · Failed message
+
+If the confirmation cannot be sent, the booking stays saved and Accepted, and the failure is reported.
+
+Check: mail server fails while Maya books R7 for 12–14 November → `Accepted R101` with `notification_failed=True`, and `store.count() == 1`.
+
+Proof: `test_a_failed_confirmation_keeps_the_booking ... ok`
